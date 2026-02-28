@@ -12,6 +12,8 @@
 }
 body {
   font-family: "Satoshi", sans-serif !important;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 :root, *{
     font-family: "Satoshi", sans-serif !important;
