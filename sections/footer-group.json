@@ -303,7 +303,7 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
-            "padding-block-start-mobile": 0,
+            "padding-block-start-mobile": 50,
             "padding-block-end": 0,
             "padding-block-end-mobile": 0,
             "padding-inline-start": 0,
@@ -397,7 +397,7 @@
                     "padding-block-start": 0,
                     "padding-block-start-mobile": 0,
                     "padding-block-end": 0,
-                    "padding-block-end-mobile": 0,
+                    "padding-block-end-mobile": 20,
                     "padding-inline-start": 0,
                     "padding-inline-start-mobile": 0,
                     "padding-inline-end": 0,
@@ -489,7 +489,7 @@
                   "type": "group",
                   "name": "t:names.group",
                   "settings": {
-                    "add-class": "",
+                    "add-class": "half",
                     "content_direction": "row",
                     "vertical_on_mobile": true,
                     "horizontal_alignment": "flex-start",
@@ -1045,7 +1045,8 @@
       ],
       "custom_css": [
         ".lg .image-block {max-width: 230px;}",
-        ".lg p {max-width: 300px;}"
+        ".lg p {max-width: 300px;}",
+        "@media (max-width: 749px) {.lg .image-block {max-width: 150px; } .half{}}"
       ],
       "name": "t:names.footer",
       "settings": {
