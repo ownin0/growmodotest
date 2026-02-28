@@ -910,7 +910,7 @@
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 30,
-                "padding-block-start-mobile": 0,
+                "padding-block-start-mobile": 30,
                 "padding-block-end": 0,
                 "padding-block-end-mobile": 0,
                 "padding-inline-start": 0,
@@ -1046,7 +1046,7 @@
       "custom_css": [
         ".lg .image-block {max-width: 230px;}",
         ".lg p {max-width: 300px;}",
-        "@media (max-width: 749px) {.lg .image-block {max-width: 150px; } .halz > .group-block-content > .group-block {width: calc(50% - 6px); flex: unset; } .halz > .group-block-content {flex-direction: row; flex-wrap: wrap; row-gap: 40px; } .util p {text-align: center; } .util ul{justify-content: center; }}"
+        "@media (max-width: 749px) {.lg .image-block {max-width: 150px; } .halz > .group-block-content > .group-block {width: calc(50% - 6px); flex: unset; } .halz > .group-block-content {flex-direction: row; flex-wrap: wrap; row-gap: 40px; } .util p {text-align: center; } .util ul {justify-content: center; }}"
       ],
       "name": "t:names.footer",
       "settings": {
