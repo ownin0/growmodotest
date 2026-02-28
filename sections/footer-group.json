@@ -935,7 +935,7 @@
                   "type": "group",
                   "name": "t:names.group",
                   "settings": {
-                    "add-class": "",
+                    "add-class": "util",
                     "content_direction": "row",
                     "vertical_on_mobile": true,
                     "horizontal_alignment": "space-between",
@@ -1046,7 +1046,7 @@
       "custom_css": [
         ".lg .image-block {max-width: 230px;}",
         ".lg p {max-width: 300px;}",
-        "@media (max-width: 749px) {.lg .image-block {max-width: 150px; } .halz > .group-block-content > .group-block {width: calc(50% - 6px); flex: unset; } .halz > .group-block-content {flex-direction: row; flex-wrap: wrap; row-gap: 40px; }}"
+        "@media (max-width: 749px) {.lg .image-block {max-width: 150px; } .halz > .group-block-content > .group-block {width: calc(50% - 6px); flex: unset; } .halz > .group-block-content {flex-direction: row; flex-wrap: wrap; row-gap: 40px; } .util p {text-align: center; } .util ul{justify-content: center; }}"
       ],
       "name": "t:names.footer",
       "settings": {
