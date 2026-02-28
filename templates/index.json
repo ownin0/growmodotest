@@ -1346,7 +1346,7 @@
             "title_size": 48,
             "title_color": "#000000",
             "desktop_width_percent": 100,
-            "nav_button_bg": "#f5f5f5",
+            "nav_button_bg": "#ffffff",
             "nav_button_hover_bg": "#e0e0e0",
             "nav_button_color": "#000000",
             "slide_gap": 20,
