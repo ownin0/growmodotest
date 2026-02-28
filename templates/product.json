@@ -145,6 +145,14 @@
                   },
                   "blocks": {}
                 },
+                "custom_liquid_6xLz89": {
+                  "type": "custom-liquid",
+                  "name": "t:names.custom_liquid",
+                  "settings": {
+                    "custom_liquid": "{% assign rating = closest.product.metafields.custom.custom_rating | times: 1.0 %}\n\n{% if rating != blank and rating > 0 %}\n  {% assign full_stars = rating | floor %}\n  {% assign decimal = rating | modulo: 1 %}\n  {% assign empty_stars = 5 | minus: full_stars %}\n\n  {% if decimal >= 0.5 %}\n    {% assign has_half = true %}\n    {% assign empty_stars = empty_stars | minus: 1 %}\n  {% else %}\n    {% assign has_half = false %}\n  {% endif %}\n\n  <div class=\"custom-rating\">\n    <div class=\"custom-rating__stars\">\n\n      {% for i in (1..full_stars) %}\n        <svg class=\"custom-rating__star custom-rating__star--full\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">\n          <polygon points=\"12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26\"/>\n        </svg>\n      {% endfor %}\n\n      {% if has_half %}\n        <svg class=\"custom-rating__star custom-rating__star--half\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">\n          <defs>\n            <linearGradient id=\"half-grad-{{ product.id }}\">\n              <stop offset=\"50%\" stop-color=\"currentColor\"/>\n              <stop offset=\"50%\" stop-color=\"transparent\"/>\n            </linearGradient>\n          </defs>\n          <polygon\n            points=\"12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26\"\n            fill=\"url(#half-grad-{{ product.id }})\"\n            stroke=\"currentColor\"\n          />\n        </svg>\n      {% endif %}\n\n      {% if empty_stars > 0 %}\n        {% for i in (1..empty_stars) %}\n          <svg class=\"custom-rating__star custom-rating__star--empty\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">\n            <polygon points=\"12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26\"/>\n          </svg>\n        {% endfor %}\n      {% endif %}\n\n    </div>\n    <span class=\"custom-rating__label\">{{ rating }}/5</span>\n  </div>\n\n  <style>\n    .custom-rating {\n      display: flex;\n      align-items: center;\n      gap: 8px;\n    }\n\n    .custom-rating__stars {\n      display: flex;\n      align-items: center;\n      gap: 2px;\n    }\n\n    .custom-rating__star {\n      width: 18px;\n      height: 18px;\n    }\n\n    .custom-rating__star--full {\n      fill: #f5a623;\n      stroke: #f5a623;\n      stroke-width: 1;\n    }\n\n    .custom-rating__star--half {\n      color: #f5a623;\n      stroke: #f5a623;\n      stroke-width: 1;\n    }\n\n    .custom-rating__star--empty {\n      fill: none;\n      stroke: #f5a623;\n      stroke-width: 1.5;\n    }\n\n    .custom-rating__label {\n      font-size: 14px;\n      color: #555;\n      font-weight: 500;\n    }\n@media (max-width: 749px){\n.custom-rating__label {\nfont-size: 12px;\n}\n.custom-rating__star {\n      width: 15.5px;\n      height: 15.5px;\n    }\n}\n  </style>\n{% endif %}"
+                  },
+                  "blocks": {}
+                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
@@ -170,6 +178,7 @@
               },
               "block_order": [
                 "text_xrnftG",
+                "custom_liquid_6xLz89",
                 "price_tVjtKg"
               ]
             },
