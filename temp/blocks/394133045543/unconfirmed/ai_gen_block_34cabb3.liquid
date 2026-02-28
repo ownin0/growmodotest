@@ -1,6 +1,220 @@
+{% doc %}
+  @prompt
+    breadcrumbs. 
+    
+    it should show like this
+    
+    Home > Collection Title
+    
+    home is opacity 0.7 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-breadcrumbs-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+  }
+
+  .ai-breadcrumbs-nav-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: {{ block.settings.spacing }}px;
+    font-size: {{ block.settings.font_size }}px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-breadcrumbs-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.spacing }}px;
+  }
+
+  .ai-breadcrumbs-link-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .ai-breadcrumbs-link-{{ ai_gen_id }}:hover {
+    opacity: 1;
+  }
+
+  .ai-breadcrumbs-current-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    opacity: 1;
+  }
+
+  .ai-breadcrumbs-separator-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    opacity: 0.5;
+  }
+{% endstyle %}
+
+<nav
+  class="ai-breadcrumbs-{{ ai_gen_id }}"
+  aria-label="Breadcrumb"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-breadcrumbs-nav-{{ ai_gen_id }}">
+    <div class="ai-breadcrumbs-item-{{ ai_gen_id }}">
+      <a href="/" class="ai-breadcrumbs-link-{{ ai_gen_id }}">
+        {{ block.settings.home_text }}
+      </a>
+    </div>
+
+    {% if collection %}
+      <span class="ai-breadcrumbs-separator-{{ ai_gen_id }}" aria-hidden="true">
+        {{ block.settings.separator }}
+      </span>
+      <div class="ai-breadcrumbs-item-{{ ai_gen_id }}">
+        <span class="ai-breadcrumbs-current-{{ ai_gen_id }}" aria-current="page">
+          {{ collection.title }}
+        </span>
+      </div>
+    {% elsif product %}
+      {% if product.collections.size > 0 %}
+        <span class="ai-breadcrumbs-separator-{{ ai_gen_id }}" aria-hidden="true">
+          {{ block.settings.separator }}
+        </span>
+        <div class="ai-breadcrumbs-item-{{ ai_gen_id }}">
+          <a href="{{ product.collections.first.url }}" class="ai-breadcrumbs-link-{{ ai_gen_id }}">
+            {{ product.collections.first.title }}
+          </a>
+        </div>
+      {% endif %}
+      <span class="ai-breadcrumbs-separator-{{ ai_gen_id }}" aria-hidden="true">
+        {{ block.settings.separator }}
+      </span>
+      <div class="ai-breadcrumbs-item-{{ ai_gen_id }}">
+        <span class="ai-breadcrumbs-current-{{ ai_gen_id }}" aria-current="page">
+          {{ product.title }}
+        </span>
+      </div>
+    {% elsif page %}
+      <span class="ai-breadcrumbs-separator-{{ ai_gen_id }}" aria-hidden="true">
+        {{ block.settings.separator }}
+      </span>
+      <div class="ai-breadcrumbs-item-{{ ai_gen_id }}">
+        <span class="ai-breadcrumbs-current-{{ ai_gen_id }}" aria-current="page">
+          {{ page.title }}
+        </span>
+      </div>
+    {% elsif article %}
+      <span class="ai-breadcrumbs-separator-{{ ai_gen_id }}" aria-hidden="true">
+        {{ block.settings.separator }}
+      </span>
+      <div class="ai-breadcrumbs-item-{{ ai_gen_id }}">
+        <a href="{{ blog.url }}" class="ai-breadcrumbs-link-{{ ai_gen_id }}">
+          {{ blog.title }}
+        </a>
+      </div>
+      <span class="ai-breadcrumbs-separator-{{ ai_gen_id }}" aria-hidden="true">
+        {{ block.settings.separator }}
+      </span>
+      <div class="ai-breadcrumbs-item-{{ ai_gen_id }}">
+        <span class="ai-breadcrumbs-current-{{ ai_gen_id }}" aria-current="page">
+          {{ article.title }}
+        </span>
+      </div>
+    {% endif %}
+  </div>
+</nav>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Breadcrumbs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "home_text",
+      "label": "Home text",
+      "default": "Home"
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Separator",
+      "default": ">"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "Spacing",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical padding",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Breadcrumbs"
+    }
+  ],
+  "tag": null
+}
 {% endschema %}
