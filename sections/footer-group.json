@@ -489,7 +489,7 @@
                   "type": "group",
                   "name": "t:names.group",
                   "settings": {
-                    "add-class": "half",
+                    "add-class": "halz",
                     "content_direction": "row",
                     "vertical_on_mobile": true,
                     "horizontal_alignment": "flex-start",
@@ -1046,7 +1046,7 @@
       "custom_css": [
         ".lg .image-block {max-width: 230px;}",
         ".lg p {max-width: 300px;}",
-        "@media (max-width: 749px) {.lg .image-block {max-width: 150px; } .half{}}"
+        "@media (max-width: 749px) {.lg .image-block {max-width: 150px; } .half {}}"
       ],
       "name": "t:names.footer",
       "settings": {
