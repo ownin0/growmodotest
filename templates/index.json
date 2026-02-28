@@ -1353,9 +1353,9 @@
             "slide_bg": "#ffffff",
             "slide_border_radius": 12,
             "slide_padding": 24,
-            "star_color": "#FFC107",
+            "star_color": "#ffc107",
             "name_color": "#000000",
-            "verified_bg": "#4CAF50",
+            "verified_bg": "#4caf50",
             "verified_check": "#ffffff",
             "text_color": "#00000099",
             "testimonial_1_name": "Sarah M.",
@@ -1376,6 +1376,9 @@
       },
       "block_order": [
         "ai_gen_block_78e19d0_93HgRi"
+      ],
+      "custom_css": [
+        ".color-scheme-1{overflow: hidden;}"
       ],
       "name": "t:names.custom_section",
       "settings": {
