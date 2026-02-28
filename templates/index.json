@@ -1378,7 +1378,8 @@
         "ai_gen_block_78e19d0_93HgRi"
       ],
       "custom_css": [
-        ".color-scheme-1 {overflow: hidden;}"
+        ".color-scheme-1 {overflow: hidden;}",
+        ".shopify-block{}"
       ],
       "name": "t:names.custom_section",
       "settings": {
