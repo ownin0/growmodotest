@@ -1,5 +1,3 @@
-
-
 {% assign block_settings = block.settings %}
 <div
   class="email-signup-block size-style spacing-style"
@@ -68,6 +66,21 @@
         {% endif %}
       </button>
     </div>
+
+    {% if block_settings.show_below_icon and block_settings.below_icon != blank %}
+      <div class="email-signup__below-icon">
+        <img
+          src="{{ block_settings.below_icon | image_url: width: 40 }}"
+          alt="{{ block_settings.below_icon_alt | escape }}"
+          width="20"
+          height="20"
+          loading="lazy"
+        >
+        {% if block_settings.below_icon_text != blank %}
+          <span class="email-signup__below-icon-text">{{ block_settings.below_icon_text | escape }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
 
     {%- if form.errors and form.id == form_id -%}
       <div
@@ -368,6 +381,28 @@
   .email-signup__message-text {
     margin: 0;
   }
+
+  /* Below input icon */
+  .email-signup__below-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    margin-block-start: var(--margin-xs);
+  }
+
+  .email-signup__below-icon img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .email-signup__below-icon-text {
+    font-size: 0.75em;
+    color: rgb(var(--color-input-text-rgb) / var(--opacity-70));
+    line-height: 1.3;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -555,6 +590,35 @@
       ],
       "default": "paragraph",
       "info": "t:info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "header",
+      "content": "Below Input Icon"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_below_icon",
+      "label": "Show icon below input",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "below_icon",
+      "label": "Icon image",
+      "visible_if": "{{ block.settings.show_below_icon == true }}"
+    },
+    {
+      "type": "text",
+      "id": "below_icon_alt",
+      "label": "Icon alt text",
+      "visible_if": "{{ block.settings.show_below_icon == true }}"
+    },
+    {
+      "type": "text",
+      "id": "below_icon_text",
+      "label": "Icon label text",
+      "info": "Optional text to display next to the icon",
+      "visible_if": "{{ block.settings.show_below_icon == true }}"
     },
     {
       "type": "header",
