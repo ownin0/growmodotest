@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("Satoshi-Variable.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Integral CF";
+  src: url("Integral CF Bold.woff2") format("woff2"),
+       url("Integral CF Bold.woff") format("woff"),
+       url("Integral CF Bold.ttf") format("truetype");
+  font-display: swap;
+}
+body {
+  font-family: "Satoshi", sans-serif !important;
+}
+:root, *{
+    font-family: "Satoshi", sans-serif !important;
+}
+
+h1, .h1, .h1.h1, .text-block.h1>*,
+h2, .h2.h2, .text-block.h2>*{
+    font-weight: 700 !important;
+    font-family: "Integral CF", sans-serif !important;
+}
+
+
+
+
+@media (min-width: 1024px){
+  .search-action{
+      background: #F0F0F0;
+      border-radius: 100px;
+      overflow: hidden;
+      width: 500px;
+      max-width: 30%;
+  }
+  .search-action button.header-actions__action:after{
+      content: "Search for products...";
+      display: flex;
+      align-items: center;
+      opacity: 0.5;
+  }
+}
+@media (max-width: 749px){
+  body, .paragraph:not(.button), .paragraph>*{
+        --font-paragraph--size: 14px !important;
+        line-height: 1.4;
+  }
+  .search-action--hidden-on-menu{
+        
+  }
+  #header-component[data-menu-style=drawer] .header__columns{
+      grid-template-areas: "leftA center leftB rightA rightB" !important;
+      --header-template-columns: 44px 1fr 44px 44px 44px !important;
+  }
+  #header-component[data-menu-style=drawer] .header__columns .header-logo{
+    justify-content: flex-start !important;
+  }
+  h1, .h1, .h1.h1, .text-block.h1>*{
+      font-size: 36px !important;
+  }
+  h2, .h2, .h2.h2, .text-block.h2>*{
+      font-size: 32px !important;
+  }
+}

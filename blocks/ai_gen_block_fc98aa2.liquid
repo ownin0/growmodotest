@@ -1,0 +1,191 @@
+{% doc %}
+  @prompt
+    5 image in 1 line . space between each image. 
+    
+    5 in 1 row in deskop. 3 by 2 on mobile. centered. 
+    
+    let me set height of image. width is auto. 
+    
+    for both desktop and mobile. and spacing. , container should be flex and set flex space between each image
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-image-row-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-image-row-container-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .ai-image-row-item-{{ ai_gen_id }} {
+    flex: 0 0 auto;
+  }
+
+  .ai-image-row-item-{{ ai_gen_id }} img {
+    height: {{ block.settings.desktop_height }}px;
+    width: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .ai-image-row-placeholder-{{ ai_gen_id }} {
+    height: {{ block.settings.desktop_height }}px;
+    width: 200px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-image-row-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-image-row-container-{{ ai_gen_id }} {
+      gap: {{ block.settings.mobile_spacing }}px 15px;
+      justify-content: center;
+    }
+
+    .ai-image-row-item-{{ ai_gen_id }} img {
+      height: {{ block.settings.mobile_height }}px;
+    }
+    .ai-image-row-item-{{ ai_gen_id }}:nth-child(2){
+      margin: 0 15px;
+    }
+    .ai-image-row-placeholder-{{ ai_gen_id }} {
+      height: {{ block.settings.mobile_height }}px;
+    }
+
+    .ai-image-row-item-{{ ai_gen_id }} {
+
+      text-align: center;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-image-row-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-image-row-container-{{ ai_gen_id }}">
+    {% for i in (1..5) %}
+      {% liquid
+        assign image_key = 'image_' | append: i
+        assign image = block.settings[image_key]
+      %}
+      <div class="ai-image-row-item-{{ ai_gen_id }}">
+        {% if image %}
+          <img
+            src="{{ image | image_url: width: 1000 }}"
+            alt="{{ image.alt | escape }}"
+            loading="lazy"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+          >
+        {% else %}
+          <div class="ai-image-row-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image row",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_5",
+      "label": "Image 5"
+    },
+    {
+      "type": "header",
+      "content": "Desktop layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Image height",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Image height",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_spacing",
+      "label": "Spacing",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image row"
+    }
+  ]
+}
+{% endschema %}
