@@ -226,6 +226,9 @@
       "block_order": [
         "group_MW37Kw"
       ],
+      "custom_css": [
+        ".email-signup__input-group {flex-direction: column; margin-left: auto;}"
+      ],
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
