@@ -466,7 +466,7 @@
                         "instagram_url": "https://www.facebook.com/a",
                         "youtube_url": "",
                         "tiktok_url": "http://github.com/a",
-                        "twitter_url": "https://httpshttps://www.facebook.com/a://www.facebook.com/a",
+                        "twitter_url": "https://httpshttps//www.facebook.com/a://www.facebook.com/a",
                         "threads_url": "",
                         "linkedin_url": "",
                         "bluesky_url": "",
@@ -1012,7 +1012,7 @@
                       "type": "payment-icons",
                       "name": "t:names.payment_icons",
                       "settings": {
-                        "horizontal_alignment": "flex-start",
+                        "horizontal_alignment": "flex-end",
                         "gap": 10,
                         "padding-block-start": 0,
                         "padding-block-end": 0,
