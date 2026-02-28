@@ -109,41 +109,11 @@
                   "type": "text",
                   "settings": {
                     "add-class": "",
-                    "text": "<h2>Join our email list</h2>",
+                    "text": "<h2>STAY UPTO DATE ABOUT OUR LATEST OFFERS</h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h4",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-start-mobile": 0,
-                    "padding-block-end": 0,
-                    "padding-block-end-mobile": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-start-mobile": 0,
-                    "padding-inline-end": 0,
-                    "padding-inline-end-mobile": 0
-                  },
-                  "blocks": {}
-                },
-                "text_f9CFLH": {
-                  "type": "text",
-                  "settings": {
-                    "add-class": "",
-                    "text": "<p>Get exclusive deals and early access to new products.</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "h3",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -167,8 +137,7 @@
                 }
               },
               "block_order": [
-                "text_LWt8Pz",
-                "text_f9CFLH"
+                "text_LWt8Pz"
               ]
             },
             "group_6XGwXz": {
