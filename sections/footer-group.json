@@ -227,7 +227,8 @@
         "group_MW37Kw"
       ],
       "custom_css": [
-        ".email-signup__input-group {flex-direction: column; margin-left: auto;}"
+        ".email-signup__input-group {flex-direction: column; margin-left: auto;}",
+        "input, button{width: 420px; max-width: 100%;}"
       ],
       "name": "t:names.footer",
       "settings": {
