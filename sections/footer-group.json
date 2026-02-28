@@ -1046,7 +1046,7 @@
       "custom_css": [
         ".lg .image-block {max-width: 230px;}",
         ".lg p {max-width: 300px;}",
-        "@media (max-width: 749px) {.lg .image-block {max-width: 150px; } .halz > .group-block-content > .group-block {width: calc(50% - 6px); } .halz > .group-block-content {flex-direction: row; flex-wrap: wrap; }}"
+        "@media (max-width: 749px) {.lg .image-block {max-width: 150px; } .halz > .group-block-content > .group-block {width: calc(50% - 6px); flex: unset; } .halz > .group-block-content {flex-direction: row; flex-wrap: wrap; row-gap: 40px; }}"
       ],
       "name": "t:names.footer",
       "settings": {
